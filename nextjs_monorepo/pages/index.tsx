@@ -22,22 +22,6 @@ const Home: NextPage = () => {
         </p>
 
         <div className={styles.grid}>
-          <a href="https://www.jp.square-enix.com/ketsugou-danshi/" id="connected_boys" className={styles.card}>
-            <h2>結合男子</h2>
-            <p>万物を呑み込み同化する暗黒の絶対虚無『デッドマター』</p>
-            <div>
-              ここ『結倭ノ国』に
-              デッドマターの脅威に
-              敢然と立ち向かう者たちがいた
-              元素の力を宿す『志献官』である
-            </div>
-          </a>
-
-          <a href="https://www.jp.square-enix.com/octopathtraveler2/" id="octra2" className={styles.card}>
-            <h2>旅立とう、きみだけの物語へ――</h2>
-            <p>COMING 2023.2.24</p>
-          </a>
-
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
             <p>Find in-depth information about Next.js features and API.</p>
