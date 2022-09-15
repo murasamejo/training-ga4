@@ -45,6 +45,7 @@ const Home: NextPage = () => {
 
           <Script id="data-layer-sample" strategy="afterInteractive">
             {`
+              window.dataLayer = window.dataLayer || [];
               dataLayer.push({
                 currentTime: new Date().toString()
               })
