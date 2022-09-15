@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import Script from 'next/script'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
@@ -22,21 +23,46 @@ const Home: NextPage = () => {
         </p>
 
         <div className={styles.grid}>
-          <a href="https://www.jp.square-enix.com/ketsugou-danshi/" id="connected_boys" className={styles.card} data-gtm-external-link="true">
-            <h2>結合男子</h2>
-            <p>万物を呑み込み同化する暗黒の絶対虚無『デッドマター』</p>
-            <div>
+          <div className={styles.card}>
+            <h2 data-gtm-text-click="ketsugou-danshi_01" data-gtm-calc-text-click="true">
+              結合男子
+            </h2>
+            <h3>
+              <a id="ketsugou-danshi" href="https://www.jp.square-enix.com/ketsugou-danshi/" data-gtm-external-link="true">
+                公式サイトへ
+              </a>
+            </h3>
+            <p data-gtm-text-click="ketsugou-danshi_02" data-gtm-calc-text-click="true">
+              万物を呑み込み同化する暗黒の絶対虚無『デッドマター』
+            </p>
+            <div data-gtm-text-click="ketsugou-danshi_03" data-gtm-calc-text-click="true">
               ここ『結倭ノ国』に
               デッドマターの脅威に
               敢然と立ち向かう者たちがいた
               元素の力を宿す『志献官』である
             </div>
-          </a>
+          </div>
 
-          <a href="https://www.jp.square-enix.com/octopathtraveler2/" id="octra2" className={styles.card} data-gtm-external-link="true">
-            <h2>旅立とう、きみだけの物語へ――</h2>
-            <p>COMING 2023.2.24</p>
-          </a>
+          <Script id="data-layer-sample" strategy="afterInteractive">
+            {`
+              dataLayer.push({
+                currentTime: new Date().toString()
+              })
+            `}
+          </Script>
+
+          <div className={styles.card}>
+            <h2 data-gtm-text-click="octopath_traveler_2_01" data-gtm-calc-text-click="true">
+              オクトパストラベラーII
+            </h2>
+            <h3>
+              <a id="octopath_traveler_2" href="https://www.jp.square-enix.com/octopathtraveler2/" data-gtm-external-link="true">
+                公式サイトへ
+              </a>
+            </h3>
+            <p data-gtm-text-click="octopath_traveler_2_02" data-gtm-calc-text-click="true">旅立とう、きみだけの物語へ――</p>
+            <p data-gtm-text-click="octopath_traveler_2_03" data-gtm-calc-text-click="true">COMING 2023.2.24</p>
+          </div>
 
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
