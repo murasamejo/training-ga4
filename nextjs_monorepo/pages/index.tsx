@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import Script from 'next/script'
+// import Script from 'next/script'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
@@ -43,14 +43,14 @@ const Home: NextPage = () => {
             </div>
           </div>
 
-          <Script id="data-layer-sample" strategy="afterInteractive">
+          {/* <Script id="data-layer-sample" strategy="afterInteractive">
             {`
               window.dataLayer = window.dataLayer || [];
               dataLayer.push({
                 currentTime: new Date().toString()
               })
             `}
-          </Script>
+          </Script> */}
 
           <div className={styles.card}>
             <h2 data-gtm-text-click="octopath_traveler_2_01" data-gtm-calc-text-click="true">
