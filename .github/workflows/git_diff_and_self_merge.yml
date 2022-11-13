@@ -50,7 +50,6 @@ jobs:
             gh pr create --title "更新した (${{ env.CURRENT_DATETIME_WITH_DIVIDERS }})" --body "- 更新した (${{ env.CURRENT_DATETIME_WITH_DIVIDERS }})"
 
             # マージまで自動でやる
-            git fetch --all
             gh pr merge --squash --delete-branch update_${{ env.CURRENT_DATETIME }}
           else
             echo "差分が無いためプルリクエストは作成せずに終了します。"
