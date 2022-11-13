@@ -32,8 +32,7 @@ jobs:
           TZ: 'Asia/Tokyo'
         # $ git diff --exit-code は、差分がある時は "1 = error" を返し、無いときは "0" を返す
         run: |
-          git add .
-          git diff
+          git add -A
 
           if ! git diff --exit-code --quiet
           then
