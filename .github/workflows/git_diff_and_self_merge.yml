@@ -32,6 +32,9 @@ jobs:
           TZ: 'Asia/Tokyo'
         # $ git diff --exit-code は、差分がある時は "1 = error" を返し、無いときは "0" を返す
         run: |
+          # 新規ファイル追加時には -N を経ないと差分が検出されない
+          git add -N -A
+
           if ! git diff --exit-code --quiet
           then
             git config --global user.email "takiya@toran.sakura.ne.jp"
