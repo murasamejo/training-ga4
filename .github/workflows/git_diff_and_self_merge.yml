@@ -22,10 +22,6 @@ jobs:
           echo CURRENT_DATETIME_WITH_DIVIDERS=`date "+%Y/%m/%d %H:%M:%S"` >> $GITHUB_ENV
       - name: $ git clone する
         uses: actions/checkout@v3
-      - name: $ touch hoge する
-        run: |
-          touch hoge
-          touch fuga
       - name: $ git diff を実行して差分があるかどうかをチェックする
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
