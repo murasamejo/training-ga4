@@ -26,35 +26,33 @@ jobs:
         run: |
           touch hoge
       - name: $ git diff を実行して差分があるかどうかをチェックする
-        id: git_diff
-        # $ git diff --exit-code は、差分がある時は "1 = error" を返し、無いときは "0" を返す
-        continue-on-error: true
-        run: |
-          git config --global user.email "takiya@toran.sakura.ne.jp"
-          git config --global user.name "nikukyugamer"
-
-          git add .
-          git diff --cached --exit-code --quiet
-      - name: 差分が無いときにはプルリクエストは出さない
-        if: steps.git_diff.outcome == 'success'
-        run: |
-          echo "差分が無いためプルリクエストは作成せずに終了します。"
-      - name: 差分があるときにはプルリクエストを提出する
-        if: steps.git_diff.outcome == 'failure'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TZ: 'Asia/Tokyo'
+        # $ git diff --exit-code は、差分がある時は "1 = error" を返し、無いときは "0" を返す
         run: |
+          git add .
+          git diff
 
+          if ! git diff --exit-code --quiet
+          then
+            git config --global user.email "takiya@toran.sakura.ne.jp"
+            git config --global user.name "nikukyugamer"
 
-          git switch -c update_${{ env.CURRENT_DATETIME }}
+            git switch -c update_${{ env.CURRENT_DATETIME }}
+            git commit -m "更新した"
+            git push --set-upstream origin update_${{ env.CURRENT_DATETIME }}
 
-          git commit -m "更新した"
-          git push --set-upstream origin update_${{ env.CURRENT_DATETIME }}
+            gh version
 
-          gh version
+            gh pr create --title "更新した (${{ env.CURRENT_DATETIME_WITH_DIVIDERS }})" --body "- 更新した (${{ env.CURRENT_DATETIME_WITH_DIVIDERS }})"
 
-          gh pr create --title "更新した (${{ env.CURRENT_DATETIME_WITH_DIVIDERS }})" --body "- 更新した (${{ env.CURRENT_DATETIME_WITH_DIVIDERS }})"
+            exit 0
+          else
+            echo "差分が無いためプルリクエストは作成せずに終了します。"
+
+            exit 0
+          fi
       - name: 差分があるときはコミットしてプッシュする
         run : |
           echo ${{ env.CURRENT_DATETIME }}
