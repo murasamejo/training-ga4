@@ -32,14 +32,13 @@ jobs:
           TZ: 'Asia/Tokyo'
         # $ git diff --exit-code は、差分がある時は "1 = error" を返し、無いときは "0" を返す
         run: |
-          git add -A
-
           if ! git diff --exit-code --quiet
           then
             git config --global user.email "takiya@toran.sakura.ne.jp"
             git config --global user.name "nikukyugamer"
 
             git switch -c update_${{ env.CURRENT_DATETIME }}
+            git add -A
             git commit -m "更新した"
             git push --set-upstream origin update_${{ env.CURRENT_DATETIME }}
 
