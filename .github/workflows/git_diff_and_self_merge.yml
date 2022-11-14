@@ -22,7 +22,7 @@ jobs:
           echo CURRENT_DATETIME_WITH_DIVIDERS=`date "+%Y/%m/%d %H:%M:%S"` >> $GITHUB_ENV
       - name: $ git clone する
         uses: actions/checkout@v3
-      - name: $ git diff を実行して差分があるかどうかをチェックする
+      - name: $ git diff を実行して差分がある場合には Pull Request を出す
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TZ: 'Asia/Tokyo'
