@@ -52,10 +52,10 @@ jobs:
           cp -r functions .output/public
           ls -ls .output/public
       - name: デプロイする
-        working-directory: ./nuxt3_monorepo/.output/public
         # https://github.com/cloudflare/wrangler-action
         uses: cloudflare/wrangler-action@2.0.0
         with:
+          workingDirectory: ./nuxt3_monorepo/.output/public
           apiToken: ${{ secrets.CF_API_TOKEN }}
           # Account ID は $ wrangler whoami で確認することができる
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
