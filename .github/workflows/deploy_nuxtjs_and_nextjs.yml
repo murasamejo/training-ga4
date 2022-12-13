@@ -50,6 +50,7 @@ jobs:
         run: |
           cd nuxt3_monorepo
           cp -r functions .output/public
+          ls -ls .output/public
       - name: デプロイする
         # https://github.com/cloudflare/wrangler-action
         uses: cloudflare/wrangler-action@2.0.0
