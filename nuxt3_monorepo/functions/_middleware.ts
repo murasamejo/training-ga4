@@ -1,4 +1,4 @@
-cons Credentials = {
+const Credentials = {
   USERNAME: "user",
   PASSWORD: "password",
 };
