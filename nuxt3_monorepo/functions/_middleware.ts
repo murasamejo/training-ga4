@@ -3,17 +3,15 @@ const Credentials = {
   PASSWORD: "password",
 };
 
-
-const errorHandler = async ({ next }) => {
+const errorHandler = async ({ next }: any) => {
   try {
     return await next();
-  } catch (err) {
+  } catch (err: any) {
     return new Response(`${err.message}\n${err.stack}`, { status: 500 });
   }
 };
 
-
-const guardByBasicAuth = async ({ next, request, }) => {
+const guardByBasicAuth = async ({ next, request }: any) => {
   // Check header
   if (!request.headers.has("Authorization")) {
     return new Response(
